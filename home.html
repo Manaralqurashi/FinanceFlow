@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Flow - Home</title>
+  <link rel="icon" type="image/png/ico" href="_public/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="">
+  <div class="flex flex-col lg:flex-row h-screen bg-gradient-to-r from-green-100 via-green-200 to-green-300">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-green-50 shadow-md text-gray-800 h-full fixed lg:relative lg:block hidden">
+      <div class="p-6">
+        <button id="closeMenu" class="lg:hidden p-2 border rounded-md fixed top-4 left-4 bg-green-50 shadow-lg">
+          <img src="_public/close.png" class="w-4" alt="">
+        </button>
+
+        <div class="flex justify-center">
+          <a href="home.html">
+            <img src="_public/logo.jpg" class="w-32 lg:w-40 mb-8" alt="Logo">
+          </a>
+        </div>
+        <nav class="space-y-2">
+          <ul class="flex flex-col gap-1">
+            <li>
+              <a href="home.html" class="block text-gray-800 p-3 bg-green-200 hover:bg-green-300 rounded-md">Home</a>
+            </li>
+            <li>
+              <a href="update_budget.html" class="block p-3 hover:bg-green-200 rounded-md">Setup Budget</a>
+            </li>
+            <li>
+              <a href="expenses.html" class="block p-3 hover:bg-green-200 rounded-md">Expense Tracking</a>
+            </li>
+            <li>
+              <a href="notifications.html" class="block p-3 hover:bg-green-200 rounded-md">Notifications</a>
+            </li>
+            <li>
+              <a href="reports.html" class="block p-3 hover:bg-green-200 rounded-md">Monthly Report</a>
+            </li>
+            <li>
+              <a href="dashboard.html" class="block p-3 hover:bg-green-200 rounded-md">Dashboard</a>
+            </li>
+            <li>
+              <a href="about-us.html" class="block p-3 hover:bg-green-200 rounded-md">About Us</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main content area -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm p-4 flex justify-between items-center lg:px-6">
+        <div class="flex gap-4 justify-center items-center">
+          <button id="toggleButton" class="lg:hidden p-2 border rounded-md bg-green-50 shadow-md">
+            <img src="_public/menu.png" class="w-4" alt="">
+          </button>
+          <div class="text-lg lg:text-xl text-gray-800 font-semibold">Home</div>
+        </div>
+        <div>
+          <button id="logout-btn" class="text-gray-500 font-semibold hover:text-gray-700 p-2 focus:outline-none">
+            Logout
+          </button>
+        </div>
+      </header>
+
+      <!-- Content area -->
+      <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:px-8">
+        <section>
+          <!-- Hero Section -->
+          <div class="container mx-auto py-8 sm:py-10">
+            <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+              <div class="lg:w-1/2 px-4 lg:px-0">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-green-800">Manage Your Expenses, Swiftly</h1>
+                <p class="text-base sm:text-lg mt-4 text-green-700">Transform your financial journey with ease and efficiency, starting now.</p>
+                <div class="mt-6">
+                  <a href="update_budget.html">
+                    <button type="button" class="bg-green-600 text-white text-base sm:text-lg font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-green-700 transition duration-300">
+                      Start Now
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div class="lg:w-1/2 px-4 lg:px-0 mt-6 lg:mt-0">
+                <img src="_public/new1.jpg" alt="Financial Management" class="rounded-3xl object-cover h-64 sm:h-72 w-full">
+              </div>
+            </div>
+          </div>
+
+          <!-- About Us Section -->
+          <div class="container bg-green-50 rounded-3xl py-8 sm:py-10 my-10 mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-12">
+              <div class="md:w-1/2 px-4">
+                <img src="_public/about-us.jpg" alt="About Us" class="rounded-3xl object-cover w-full h-72 md:h-auto">
+              </div>
+              <div class="md:w-1/2 px-4">
+                <h4 class="text-green-600 font-extrabold text-lg sm:text-xl">About</h4>
+                <h2 class="text-2xl sm:text-3xl font-bold mt-2 text-green-800">Discover the World of Financial Planning</h2>
+                <p class="mt-4 text-green-700">Embark on a journey through the realm of Financial Planning, where strategic insights and tailored solutions pave the way to financial stability and prosperity.</p>
+                <a href="about-us.html">
+                  <button type="button" class="bg-green-600 text-white text-base sm:text-lg font-semibold py-3 px-6 rounded-lg mt-4 hover:bg-green-700 transition duration-300">
+                    Read More
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Our Services Section -->
+          <section class="container mx-auto py-8 sm:py-10 my-10">
+            <div class="flex flex-col items-center justify-center gap-6">
+              <div class="text-center px-4">
+                <h5 class="text-green-600 font-extrabold">Our Services</h5>
+                <h2 class="text-2xl sm:text-3xl font-bold mt-2 text-green-800">What We Offer</h2>
+                <p class="mt-4 text-green-700">Experience comprehensive financial solutions tailored to your needs, including personalized financial planning, investment management, retirement planning, and risk assessment.</p>
+              </div>
+              <div class="px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="text-center">
+                      <i class="bi bi-piggy-bank-fill text-4xl text-green-600"></i>
+                      <h5 class="mt-4 text-xl font-semibold text-green-800">Money Management</h5>
+                      <p class="mt-2 text-green-700">Maximize savings and reach financial goals with our advanced money management feature. Budget wisely and prioritize spending effortlessly for long-term success.</p>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="text-center">
+                      <i class="bi bi-file-earmark-bar-graph-fill text-4xl text-green-600"></i>
+                      <h5 class="mt-4 text-xl font-semibold text-green-800">Financial Report</h5>
+                      <p class="mt-2 text-green-700">Generate comprehensive financial reports summarizing expenses and income trends. Access detailed breakdowns of spending categories and visualize financial data for better insights.</p>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="text-center">
+                      <i class="bi bi-bar-chart-fill text-4xl text-green-600"></i>
+                      <h5 class="mt-4 text-xl font-semibold text-green-800">Audit & Assurance</h5>
+                      <p class="mt-2 text-green-700">Improve internal controls to enhance the reliability and transparency of financial reporting.</p>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="text-center">
+                      <i class="bi bi-coin text-4xl text-green-600"></i>
+                      <h5 class="mt-4 text-xl font-semibold text-green-800">Financial Plan</h5>
+                      <p class="mt-2 text-green-700">Develop personalized financial plans tailored to individual goals and circumstances. Analyze income, expenses, assets, and liabilities to create a comprehensive financial overview.</p>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="text-center">
+                      <i class="bi bi-kanban text-4xl text-green-600"></i>
+                      <h5 class="mt-4 text-xl font-semibold text-green-800">Profit Planning</h5>
+                      <p class="mt-2 text-green-700">Monitor performance against profit targets and adjust plans as needed to ensure financial success.</p>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="text-center">
+                      <i class="bi bi-kanban text-4xl text-green-600"></i>
+                      <h5 class="mt-4 text-xl font-semibold text-green-800">Profit Planning</h5>
+                      <p class="mt-2 text-green-700">Monitor performance against profit targets and adjust plans as needed to ensure financial success.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Why Choose Us Section -->
+          <div class="bg-green-200 py-8 sm:py-10 rounded-3xl container mx-auto my-10">
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-12">
+              <div class="md:w-1/2 px-4">
+                <!-- Feature List -->
+                <div class="space-y-6">
+                  <!-- Feature Item -->
+                  <div class="flex items-start">
+                    <i class="bi bi-check-circle text-3xl text-green-700 mr-4"></i>
+                    <div>
+                      <h4 class="text-lg font-semibold text-green-800">Financial Awareness</h4>
+                      <p class="mt-2 text-green-700">Understand where the money is being spent and get a hold of your spending patterns.</p>
+                    </div>
+                  </div>
+                  <!-- Feature Item -->
+                  <div class="flex items-start">
+                    <i class="bi bi-check-circle text-3xl text-green-700 mr-4"></i>
+                    <div>
+                      <h4 class="text-lg font-semibold text-green-800">Setting up of Goals</h4>
+                      <p class="mt-2 text-green-700">Facilitates in setting up of financial goals, be it saving up for a vacation or paying off debt.</p>
+                    </div>
+                  </div>
+                  <!-- Feature Item -->
+                  <div class="flex items-start">
+                    <i class="bi bi-check-circle text-3xl text-green-700 mr-4"></i>
+                    <div>
+                      <h4 class="text-lg font-semibold text-green-800">Accessibility and Convenience</h4>
+                      <p class="mt-2 text-green-700">Accessible anytime, anywhere. Simplify expense tracking on-the-go.</p>
+                    </div>
+                  </div>
+                  <!-- Feature Item -->
+                  <div class="flex items-start">
+                    <i class="bi bi-check-circle text-3xl text-green-700 mr-4"></i>
+                    <div>
+                      <h4 class="text-lg font-semibold text-green-800">Security</h4>
+                      <p class="mt-2 text-green-700">Your financial data is kept secure.</p>
+                    </div>
+                  </div>
+                  <!-- Feature Item -->
+                  <div class="flex items-start">
+                    <i class="bi bi-check-circle text-3xl text-green-700 mr-4"></i>
+                    <div>
+                      <h4 class="text-lg font-semibold text-green-800">Visualize Expenses</h4>
+                      <p class="mt-2 text-green-700">Provides visualizations like graphs for better financial expense understanding.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="md:w-1/2 px-4">
+                <img src="_public/why-us.webp" alt="Why Choose Us" class="rounded-3xl object-cover w-full h-72 sm:h-80">
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- script for homepage -->
+  <script src="./scripts/home.js?v=1"></script>
+  <script src="./scripts/expense_info.js?v=1"></script>
+
+  <!-- script for toggle menu -->
+  <script src="./scripts/toggle_menu.js?v=1"></script>
+
+  <!-- script for handling logout -->
+  <script src="./scripts/logout.js?v=1"></script>
+
+  <!-- Script for checking user login status -->
+  <script src="./scripts/login_status.js?v=1"></script>
+
+</body>
+
+</html>

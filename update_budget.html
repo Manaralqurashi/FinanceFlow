@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Flow - Setup Budget</title>
+  <link rel="icon" type="image/png/ico" href="_public/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="">
+  <div class="flex flex-col lg:flex-row h-screen bg-gradient-to-r from-green-100 via-green-200 to-green-300">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-green-50 shadow-md text-gray-800 h-full fixed lg:relative lg:block hidden">
+      <div class="p-6">
+        <button id="closeMenu" class="lg:hidden p-2 border rounded-md fixed top-4 left-4 bg-green-50 shadow-lg">
+          <img src="_public/close.png" class="w-4" alt="">
+        </button>
+
+        <div class="flex justify-center">
+          <a href="home.html">
+            <img src="_public/logo.jpg" class="w-32 lg:w-40 mb-8" alt="Logo">
+          </a>
+        </div>
+        <nav class="space-y-2">
+          <ul class="flex flex-col gap-1">
+            <li>
+              <a href="home.html" class="block text-gray-800 p-3 hover:bg-green-200 rounded-md">Home</a>
+            </li>
+            <li>
+              <a href="update_budget.html" class="block p-3 bg-green-200 rounded-md">Setup Budget</a>
+            </li>
+            <li>
+              <a href="expenses.html" class="block p-3 hover:bg-green-200 rounded-md">Expense Tracking</a>
+            </li>
+            <li>
+              <a href="notifications.html" class="block p-3 hover:bg-green-200 rounded-md">Notifications</a>
+            </li>
+            <li>
+              <a href="reports.html" class="block p-3 hover:bg-green-200 rounded-md">Monthly Report</a>
+            </li>
+            <li>
+              <a href="dashboard.html" class="block p-3 hover:bg-green-200 rounded-md">Dashboard</a>
+            </li>
+            <li>
+              <a href="about-us.html" class="block p-3 hover:bg-green-200 rounded-md">About Us</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main content area -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm p-4 flex justify-between items-center lg:px-6">
+        <div class="flex gap-4 justify-center items-center">
+          <button id="toggleButton" class="lg:hidden p-2 border rounded-md bg-green-50 shadow-md">
+            <img src="_public/menu.png" class="w-4" alt="">
+          </button>
+          <div class="text-lg lg:text-xl text-gray-800 font-semibold">Setup Budget</div>
+        </div>
+        <div>
+          <button id="logout-btn" class="text-gray-500 font-semibold hover:text-gray-700 p-2 focus:outline-none">
+            Logout
+          </button>
+        </div>
+      </header>
+
+      <!-- Content area -->
+      <main class="flex-1 overflow-y-auto p-6">
+        <div id="content-area" class="container mx-auto max-w-2xl">
+          <section class="max-w-2xl mx-auto p-6 bg-white rounded-xl">
+            <h2 class="text-xl sm:text-xl font-semibold text-green-800 mb-4">Setup Your Budget</h2>
+            <p class="text-green-700 mb-6 text-base sm:text-lg">Setup your budget and allocation across different categories for better financial management.</p>
+
+            <form id="budgetForm" class="space-y-6">
+              <!-- Date Picker -->
+              <div>
+                <label for="date" class="block text-sm font-semibold text-green-700 mb-1">Select Year & Month</label>
+                <input type="month" id="date" name="date" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-200" required />
+              </div>
+
+              <!-- Budget Setup Value -->
+              <div>
+                <label for="total-budget" class="block text-sm font-semibold text-green-700 mb-1">Enter Budget Value</label>
+                <input type="number" id="total-budget" name="total-budget" placeholder="Enter total budget amount" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-200" required />
+              </div>
+
+              <!-- Budget Allocation per Category -->
+              <div id="categoryContainer" class="space-y-4">
+                <label class="block text-sm font-semibold text-green-700">Allocate Budget by Category</label>
+                <!-- Category Selection and Allocation -->
+                <div class="flex items-center space-x-2">
+                  <select id="category" class="w-1/2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-200">
+                    <option value="" disabled selected>Select category</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="rent">Rent</option>
+                    <option value="groceries">Groceries</option>
+                    <option value="savings">Savings</option>
+                    <option value="others">Others</option>
+                  </select>
+
+                  <input type="number" id="percentage" placeholder="Percentage" class="w-1/2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-200" min="0" max="100" />
+                  <button type="button" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="addCategory()">Add</button>
+                </div>
+
+                <!-- Display Added Categories -->
+                <div id="categoryList" class="space-y-2"></div>
+                <p id="totalPercentageError" class="text-red-500 text-sm hidden">Total allocation cannot exceed 100%.</p>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="pt-4">
+                <button id="update-budget" type="submit" class="w-full bg-green-600 text-white text-base sm:text-lg font-semibold py-3 rounded-lg hover:bg-green-700 transition duration-300">
+                  Update
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- script for toggle menu -->
+  <script src="./scripts/toggle_menu.js?v=1"></script>
+
+  <!-- script for handling logout -->
+  <script src="./scripts/logout.js?v=1"></script>
+
+  <!-- Script for checking user login status -->
+  <script src="./scripts/login_status.js?v=1"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dateInput = document.getElementById("date");
+      const totalBudgetInput = document.getElementById("total-budget");
+      const categorySelect = document.getElementById("category");
+      const percentageInput = document.getElementById("percentage");
+      const categoryList = document.getElementById("categoryList");
+      const totalPercentageError = document.getElementById("totalPercentageError");
+      const updateButton = document.getElementById("update-budget");
+
+      // State for managing categories and total allocated percentage
+      let selectedCategories = [];
+      let totalAllocatedPercentage = 0;
+
+      // Function to calculate allocated amount based on percentage
+      function calculateAllocatedAmount(percentage) {
+        const totalBudget = parseFloat(totalBudgetInput.value) || 0;
+        return (totalBudget * (percentage / 100)).toFixed(2);
+      }
+
+      // Function to recalculate all allocated amounts when total budget changes
+      function recalculateAllocations() {
+        selectedCategories.forEach(item => {
+          item.allocatedAmount = calculateAllocatedAmount(item.percentage);
+        });
+        renderCategories();
+      }
+
+      // Add event listener for total budget changes
+      totalBudgetInput.addEventListener('input', recalculateAllocations);
+
+      // Function to add category to the list
+      function addCategoryToSelected(category, percentage, allocatedAmount, categoryId = null, allocationId = null) {
+        const listItem = document.createElement("div");
+        listItem.className = "flex justify-between items-center p-2 bg-green-50 rounded-lg";
+        listItem.innerHTML = `
+          <div>${category}: ${percentage}% ($${allocatedAmount})</div>
+          <button type="button" class="text-red-500 hover:text-red-700 delete-category" data-index="${selectedCategories.length}">
+            Remove
+          </button>
+        `;
+        categoryList.appendChild(listItem);
+        
+        // Add click event listener to the delete button
+        const deleteButton = listItem.querySelector('.delete-category');
+        deleteButton.addEventListener('click', () => deleteCategory(parseInt(deleteButton.dataset.index)));
+        
+        selectedCategories.push({ 
+          category, 
+          percentage: parseFloat(percentage), 
+          allocatedAmount: parseFloat(allocatedAmount),
+          categoryId: categoryId,
+          allocationId: allocationId
+        });
+        totalAllocatedPercentage += parseFloat(percentage);
+
+        // Update error message visibility
+        updatePercentageError();
+      }
+
+      // Function to update percentage error visibility
+      function updatePercentageError() {
+        if (totalAllocatedPercentage > 100) {
+          totalPercentageError.classList.remove('hidden');
+          updateButton.disabled = true;
+        } else {
+          totalPercentageError.classList.add('hidden');
+          updateButton.disabled = false;
+        }
+      }
+
+      // Function to clear all allocations
+      function clearAllocations() {
+        categoryList.innerHTML = '';
+        selectedCategories = [];
+        totalAllocatedPercentage = 0;
+        updatePercentageError();
+      }
+
+      // Function to add new category
+      function addCategory() {
+        const category = categorySelect.value;
+        const percentage = parseFloat(percentageInput.value);
+
+        if (!category || !percentage) {
+          alert('Please select a category and enter a percentage.');
+          return;
+        }
+
+        if (selectedCategories.some(c => c.category.toLowerCase() === category.toLowerCase())) {
+          alert('This category has already been added.');
+          return;
+        }
+
+        if (totalAllocatedPercentage + percentage > 100) {
+          alert('Total allocation cannot exceed 100%');
+          return;
+        }
+
+        const allocatedAmount = calculateAllocatedAmount(percentage);
+        addCategoryToSelected(category, percentage, allocatedAmount);
+
+        // Reset inputs
+        categorySelect.value = '';
+        percentageInput.value = '';
+      }
+
+      // Make deleteCategory function globally accessible
+      window.deleteCategory = async function(index) {
+        if (!dateInput.value) {
+          alert("Please select a month and year first.");
+          return;
+        }
+
+        const categoryToDelete = selectedCategories[index];
+
+        // If category doesn't have an ID, it's a new category that hasn't been saved
+        if (!categoryToDelete.allocationId) {
+          totalAllocatedPercentage -= categoryToDelete.percentage;
+          selectedCategories.splice(index, 1);
+          renderCategories();
+          updatePercentageError();
+          return;
+        }
+
+        const [year, month] = dateInput.value.split("-");
+        const formattedDate = `${month}-${year}`;
+
+        const token = localStorage.getItem("authToken");
+
+        try {
+          const response = await fetch(`${window.location.origin}/api/delete_budget_category.php`, {
+            method: "POST",
+            headers: {
+              Authorization: "Bearer " + token,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              date: formattedDate,
+              allocation_id: categoryToDelete.allocationId
+            })
+          });
+
+          const data = await response.json();
+
+          if (response.ok && data.valid) {
+            // Update local state
+            totalAllocatedPercentage -= categoryToDelete.percentage;
+            selectedCategories.splice(index, 1);
+            renderCategories();
+            updatePercentageError();
+            alert("Category deleted successfully");
+          } else {
+            alert(data.message || "Failed to delete category. Please try again.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("An error occurred while deleting the category.");
+        }
+      };
+
+      // Function to render all categories
+      function renderCategories() {
+        categoryList.innerHTML = '';
+        selectedCategories.forEach((item, index) => {
+          const listItem = document.createElement("div");
+          listItem.className = "flex justify-between items-center p-2 bg-green-50 rounded-lg";
+          listItem.innerHTML = `
+            <div>${item.category}: ${item.percentage}% ($${item.allocatedAmount})</div>
+            <button type="button" class="text-red-500 hover:text-red-700 delete-category" data-index="${index}">
+              Remove
+            </button>
+          `;
+          categoryList.appendChild(listItem);
+          const deleteButton = listItem.querySelector('.delete-category');
+          deleteButton.addEventListener('click', () => deleteCategory(parseInt(deleteButton.dataset.index)));
+        });
+      }
+
+      // Event listener to handle date selection and fetch existing budget
+      dateInput.addEventListener("change", async () => {
+        const selectedDate = dateInput.value;
+        if (!selectedDate) return;
+
+        const [year, month] = selectedDate.split("-");
+        const formattedDate = `${month}-${year}`;
+
+        const token = localStorage.getItem("authToken");
+
+        try {
+          const response = await fetch(`${window.location.origin}/api/get_budget.php`, {
+            method: "POST",
+            headers: {
+              Authorization: "Bearer " + token,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ date: formattedDate }),
+          });
+
+          const data = await response.json();
+
+          // Clear existing data
+          clearAllocations();
+
+          if (response.ok && data.valid && data.data) {
+            // Populate form with existing budget data
+            totalBudgetInput.value = data.data.total_budget;
+            
+            // Add existing categories
+            Object.entries(data.data.categories).forEach(([name, details]) => {
+              addCategoryToSelected(
+                name,
+                details.allocated_percentage,
+                details.allocated_value,
+                details.category_id,
+                details.allocation_id
+              );
+            });
+
+            updateButton.textContent = "Setup Budget";
+          } else {
+            // Clear form for new entry
+            totalBudgetInput.value = "";
+            updateButton.textContent = "Create Budget";
+          }
+        } catch (error) {
+          console.error("Error fetching budget data:", error);
+          alert("Error fetching budget data. Please try again.");
+        }
+      });
+
+      // Handle form submission
+      document.getElementById("budgetForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        if (!dateInput.value) {
+          alert("Please select a month and year.");
+          return;
+        }
+
+        if (!totalBudgetInput.value || totalBudgetInput.value <= 0) {
+          alert("Please enter a valid budget amount.");
+          return;
+        }
+
+        if (selectedCategories.length === 0) {
+          alert("Please add at least one category before submitting.");
+          return;
+        }
+
+        if (Math.abs(totalAllocatedPercentage - 100) > 0.01) {
+          alert("Total allocation must equal 100%");
+          return;
+        }
+
+        const [year, month] = dateInput.value.split("-");
+        const formattedDate = `${month}-${year}`;
+
+        const categories = {};
+        selectedCategories.forEach(item => {
+          categories[item.category.toLowerCase()] = {
+            allocated_percentage: item.percentage,
+            allocated_value: parseFloat(item.allocatedAmount),
+            category_id: item.categoryId
+          };
+        });
+
+        const requestData = {
+          date: formattedDate,
+          total_budget: parseFloat(totalBudgetInput.value),
+          categories: categories
+        };
+
+        const token = localStorage.getItem("authToken");
+
+        try {
+          const response = await fetch(`${window.location.origin}/api/update_budget.php`, {
+            method: "POST",
+            headers: {
+              Authorization: "Bearer " + token,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestData)
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            alert("Budget saved successfully!");
+            // Refresh the form data
+            dateInput.dispatchEvent(new Event('change'));
+          } else {
+            alert(data.message || "Failed to save budget. Please try again.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("An error occurred while saving the budget.");
+        }
+      });
+
+      // Expose functions to global scope for use in HTML
+      window.clearAllocations = clearAllocations;
+      window.addCategory = addCategory;
+    });
+  </script>
+
+</body>
+
+</html>

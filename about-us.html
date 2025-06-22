@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Flow - About Us</title>
+  <link rel="icon" type="image/png/ico" href="_public/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex flex-col lg:flex-row h-screen bg-gradient-to-r from-green-100 via-green-200 to-green-300">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-green-50 shadow-md text-gray-800 h-full fixed lg:relative lg:block hidden">
+      <div class="p-6">
+        <button id="closeMenu" class="lg:hidden p-2 border rounded-md fixed top-4 left-4 bg-green-50 shadow-lg">
+          <img src="_public/close.png" class="w-4" alt="">
+        </button>
+
+        <div class="flex justify-center">
+          <a href="home.html">
+            <img src="_public/logo.jpg" class="w-32 lg:w-40 mb-8" alt="Logo">
+          </a>
+        </div>
+        <nav class="space-y-2">
+          <ul class="flex flex-col gap-1">
+            <li>
+              <a href="home.html" class="block text-gray-800 p-3 hover:bg-green-200 rounded-md">Home</a>
+            </li>
+            <li>
+              <a href="update_budget.html" class="block p-3 hover:bg-green-200 rounded-md">Setup Budget</a>
+            </li>
+            <li>
+              <a href="expenses.html" class="block p-3 hover:bg-green-200 rounded-md">Expense Tracking</a>
+            </li>
+            <li>
+              <a href="notifications.html" class="block p-3 hover:bg-green-200 rounded-md">Notifications</a>
+            </li>
+            <li>
+              <a href="reports.html" class="block p-3 hover:bg-green-200 rounded-md">Monthly Report</a>
+            </li>
+            <li>
+              <a href="dashboard.html" class="block p-3 hover:bg-green-200 rounded-md">Dashboard</a>
+            </li>
+            <li>
+              <a href="about-us.html" class="block p-3 bg-green-200 rounded-md">About Us</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main content area -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm p-4 flex justify-between items-center lg:px-6">
+        <div class="flex gap-4 justify-center items-center">
+          <button id="toggleButton" class="lg:hidden p-2 border rounded-md bg-green-50 shadow-md">
+            <img src=" _public/menu.png" class="w-4" alt="">
+          </button>
+          <div class="text-lg lg:text-xl text-gray-800 font-semibold">About Us</div>
+        </div>
+        <div>
+          <button id="logout-btn" class="text-gray-500 font-semibold hover:text-gray-700 p-2 focus:outline-none">
+            Logout
+          </button>
+        </div>
+      </header>
+
+      <!-- Content area -->
+      <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:px-8">
+        <!-- About Us Section -->
+        <section class="container mx-auto py-8 sm:py-10">
+          <div class="text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-800">About Us</h1>
+          </div>
+          <div class="flex flex-col lg:flex-row items-start gap-6 lg:gap-12 mt-8">
+            <div class="lg:w-2/3">
+              <p class="text-gray-600 mb-4">Meet our dedicated team at Finance Flow, passionate about enhancing people's financial lives.</p>
+              <p class="mt-4 text-gray-600">
+                We are committed to providing tools and insights that empower individuals to make informed financial decisions. Join us on this journey to financial wellness with Finance Flow as your trusted companion!
+              </p>
+            </div>
+            <div class="lg:w-1/3 p-6 bg-green-50 rounded-xl shadow-lg">
+              <h3 class="text-xl font-bold text-green-600">Finance Flow HQ</h3>
+              <p class="text-gray-800 font-semibold mt-2">Jeddah, Saudi Arabia</p>
+              <p class="mt-4 text-gray-700">
+                Finance Flow<br>
+                ABC Street, Jeddah<br>
+                Saudi Arabia<br>
+                <span>Email:</span> <a href="mailto:financeflow@gmail.com" class="text-green-600">financeflow@gmail.com</a><br>
+                <span>Phone:</span> +966 548 950 603<br>
+                <span>Alternate:</span> +966 565 400 013
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Customer Service and Support Section -->
+        <section class="container mx-auto py-8 sm:py-10">
+          <div class="text-center">
+            <h2 class="text-3xl font-extrabold text-gray-800">Customer Service and Support</h2>
+          </div>
+          <div class="max-w-3xl mx-auto mt-8">
+            <div class="space-y-6 text-gray-700">
+              <p>
+                <a class="text-green-600 font-semibold">1. Community. </a>Get fast support from Finance Flow experts. Ask questions, suggest new ideas, or simply discuss.
+              </p>
+              <p>
+                <a class="text-green-600 font-semibold">2. Contact Us. </a>If the Community doesn’t solve your issue, reach out directly to our Customer Support.
+              </p>
+              <p>
+                <a class="text-green-600 font-semibold">3. Audiobook refunds. </a>If you've listened to less than 50% of an audiobook purchased within 7 days, check our refund policy.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pick a Topic Section -->
+        <section class="container mx-auto py-8 sm:py-10">
+          <div class="text-center">
+            <h2 class="text-3xl font-extrabold text-gray-800">Or pick a topic:</h2>
+          </div>
+          <div class="max-w-2xl mx-auto mt-6 text-gray-700">
+            <ul class="list-disc list-inside space-y-4">
+              <li>Advertising on Finance Flow? <a class="text-green-600">Advertisers section</a></li>
+              <li>Press query? <a class="text-green-600">Press section</a></li>
+              <li>Applying for a job? <a class="text-green-600">Jobs section</a></li>
+            </ul>
+            <p class="mt-4">Finance Flow KSA, Inc. provides the service to users in Saudi Arabia, while Finance Flow AB serves all other markets.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- script for homepage -->
+  <script src="./scripts/home.js?v=1"></script>
+  <script src="./scripts/expense_info.js?v=1"></script>
+
+  <!-- script for toggle menu -->
+  <script src="./scripts/toggle_menu.js?v=1"></script>
+
+  <!-- script for handling logout -->
+  <script src="./scripts/logout.js?v=1"></script>
+
+  <!-- Script for checking user login status -->
+  <script src="./scripts/login_status.js?v=1"></script>
+</body>
+
+</html>

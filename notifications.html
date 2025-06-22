@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Flow - Notifications</title>
+  <link rel="icon" type="image/png/ico" href="_public/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      display: none;
+    }
+
+    .notification {
+      background-color: white;
+      border: 1px solid #102c10;
+      color: #393838;
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex flex-col lg:flex-row h-screen bg-gradient-to-r from-green-100 via-green-200 to-green-300">
+    <aside id="sidebar" class="w-64 bg-green-50 shadow-md text-gray-800 h-full fixed lg:relative lg:block hidden">
+      <div class="p-6">
+        <button id="closeMenu" class="lg:hidden p-2 border rounded-md fixed top-4 left-4 bg-green-50 shadow-lg">
+          <img src="_public/close.png" class="w-4" alt="">
+        </button>
+        <div class="flex justify-center">
+          <a href="home.html">
+            <img src="_public/logo.jpg" class="w-32 lg:w-40 mb-8" alt="Logo">
+          </a>
+        </div>
+        <nav class="space-y-2">
+          <ul class="flex flex-col gap-1">
+            <li><a href="home.html" class="block text-gray-800 p-3 hover:bg-green-200 rounded-md">Home</a></li>
+            <li><a href="update_budget.html" class="block p-3 hover:bg-green-200 rounded-md">Setup Budget</a></li>
+            <li><a href="expenses.html" class="block p-3 hover:bg-green-200 rounded-md">Expense Tracking</a></li>
+            <li><a href="notifications.html" class="block p-3 bg-green-200 rounded-md">Notifications</a></li>
+            <li><a href="reports.html" class="block p-3 hover:bg-green-200 rounded-md">Monthly Report</a></li>
+            <li><a href="dashboard.html" class="block p-3 hover:bg-green-200 rounded-md">Dashboard</a></li>
+            <li><a href="about-us.html" class="block p-3 hover:bg-green-200 rounded-md">About Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col">
+      <header class="bg-white shadow-sm p-4 flex justify-between items-center lg:px-6">
+        <div class="flex gap-4 justify-center items-center">
+          <button id="toggleButton" class="lg:hidden p-2 border rounded-md bg-green-50 shadow-md">
+            <img src="_public/menu.png" class="w-4" alt="">
+          </button>
+          <div class="text-lg lg:text-xl text-gray-800 font-semibold">Notifications</div>
+        </div>
+        <div>
+          <button id="logout-btn" class="text-gray-500 font-semibold hover:text-gray-700 p-2 focus:outline-none">
+            Logout
+          </button>
+        </div>
+      </header>
+
+      <main class="flex-1 overflow-y-auto p-6">
+        <div id="content-area">
+          <section id="notifications-section" class="mx-auto max-w-lg"></section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="./scripts/toggle_menu.js?v=1"></script>
+  <script src="./scripts/logout.js?v=1"></script>
+  <script src="./scripts/login_status.js?v=1"></script>
+  <script src="./scripts/notifications.js?v=1"></script>
+</body>
+
+</html>
